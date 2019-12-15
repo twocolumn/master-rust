@@ -1,0 +1,55 @@
+<article class="post">
+  {{ post.content }}
+
+  <footer>
+    {% if post.author %}
+    <nav class="tags">
+      Author: @{{post.author}}
+    </nav>
+    {% endif %}
+
+    {% assign tags = post.tags | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Tags:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+
+    {% assign tags = post.langs | split: ' ' | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Languages:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/langs/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+
+    {% assign tags = post.tools | split: ' ' | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Tools:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/tools/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+
+    {% endif %}
+    {% assign tags = post.libs | split: ' ' | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Libraries:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/libs/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </footer>
+</article>
