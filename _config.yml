@@ -1,31 +1,275 @@
-# Dependencies
-markdown:         kramdown
-highlighter:      rouge
+# Jekyll: https://jekyllrb.com/docs/configuration/
 
-# Setup
-title:            BlackDoc
-tagline:          Black Theme for Jekyll
-description:      "A two-column black theme with a scrolling sidebar. Ideal for sites requiring a master-detail layout, e.g. documentation, cheatsheets, lyrics, notes..."
-url:              https://github.com/karloespiritu/blackdoc
-baseurl:          /
-                  # the optional subpath of your site, e.g. "/my-jekyll-site/"
-                  # This will apply to all pages in your Jekyll site.
+## Default Configuration: https://jekyllrb.com/docs/configuration/default/
 
-author:
-  name:           Karlo Espiritu
-  url:            https://twitter.com/karloespiritu
+### Conversion
+markdown                 : CommonMarkGhPages
+highlighter              : rouge
 
-paginate:         5
-# paginate_path:    '/page:num'
-                    # Or '/my-jekyll-site/page:num' if you want to move your index pages
+### Filtering Content
+future                   : true
 
+### Serving
+baseurl                  : /master-rust/
+# the optional subpath of your site, e.g. "/my-jekyll-site/"
+# This will apply to all pages in your Jekyll site.
+
+### Outputting
+permalink                : /:categories/:title/
+paginate_path            : /:num
+timezone                 : "Europe/Warsaw" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+### Where things are
+include:
+  - _pages
+
+sass:
+  #  sass_dir: ui/_scss
+  style                  : compressed
+
+## Collections: https://jekyllrb.com/docs/collections/
+collections_dir          : docs
+collections:
+  categories:
+    output               : true
+    permalink            : /:collection/:path/
+  tags:
+    output               : true
+    permalink            : /:collection/:path/
+  langs:
+    output               : true
+    permalink            : /:collection/:path/
+  tools:
+    output               : true
+    permalink            : /:collection/:path/
+  libs:
+    output               : true
+    permalink            : /:collection/:path/
+  books:
+    output               : true
+    permalink            : /:collection/:path/
+
+## Front Matter Defaults: https://jekyllrb.com/docs/configuration/front-matter-defaults/
+
+defaults:
+  # _posts
+  - scope:
+      path               : ""
+      type               : posts
+    values:
+      layout             : post
+      read_time          : true
+      comments           : true
+      share              : true
+      related            : true
+      pagination         : true
+      toc: true
+      toc_sticky         : true
+      sidebar:
+        nav              : sidebar-main
+  # _pages
+  - scope:
+      path               : "_pages"
+      type               : pages
+    values:
+      layout             : page
+      classes            : wide
+      sidebar            :
+        main             : true
+        nav              : sidebar-main
+  # _categories
+  - scope:
+      path               : ""
+      type               : categories
+    values:
+      layout             : page-category
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+  # _tags
+  - scope:
+      path               : ""
+      type               : tags
+    values:
+      layout             : page-tag
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+  # _langs
+  - scope:
+      path               : ""
+      type               : langs
+    values               :
+      layout             : page-lang
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+  # _tools
+  - scope:
+      path               : ""
+      type               : tools
+    values:
+      layout             : page-tool
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+  # _libs
+  - scope:
+      path               : ""
+      type               :  libs
+    values:
+      layout             : page-lib
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+  # _books
+  - scope:
+      path               : ""
+      type               : books
+    values:
+      layout             : page-book
+      share              : true
+      classes            : wide
+      sidebar:
+        main             : true
+        nav              : sidebar-main
+
+# Plugins
 plugins:
+  - jemoji
+  - jekyll-avatar
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+  - jekyll-default-layout
   - jekyll-feed
   - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-mentions
+  - jekyll-optional-front-matter
   - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-remote-theme
+  - jekyll-sass-converter
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
 
-# Custom vars
-version:            2.0.1
+## jekyll-commonmark-ghpages
+commonmark:
+  options                : ["SMART", "FOOTNOTES"]
+  extensions             : ["strikethrough", "autolink", "table", "tagfilter"]
+
+## jekyll-mentions
+jekyll-mentions:
+  base_url               : "https://twitter.com"
+
+## jekyll-paginate
+paginate                 : 1
+
+## jekyll-remote-theme
+# remote_theme             : twocolumn/master-rust
+
+## jekyll-seo-tag
+title                    : "WriteOnly.pl"
+tagline                  : "WriteOnly Scala, Jekyll, Git & Bash Blog"
+description: >-
+  Blog o programowaniu w językach Scala/JVM, Scala.js i Scala Native
+  oraz generatorze stron Jekyll, systemie kontroli wersji Git i użyciu wiersza poleceń CLI
+url                      :
+author:
+  twitter                : "TheKamilAdam"
+  name                   : "Kamil Adam"
+  avatar                 : "/assets/images/kamil.adam.jpg"
+  bio                    : "My awesome biography constrained to a sentence or two goes here."
+twitter:
+  username               : "TheKamilAdam"
+facebook:
+logo                     : "/assets/favicon.ico"
+social:
+  name      : "Kamil Adam"
+  links:
+    - https://github.com/writeonly
+    - https://www.linkedin.com/company/writeonly-pl
+    - https://www.facebook.com/WriteOnlyPL
+    - https://www.instagram.com/degustujacaistota/
+    - https://twitter.com/TheKamilAdam
+
+# External systems
+
+## Compress HTML
+compress_html:
+  clippings              : all
+  comments               : all
+  endings                : all
+  profile                : false
+  startings              : [head, body]
+
+## Analytics
+google_analytics: UA-136426906-1
+
+## Comments
+disqus:
+  shortname: writeonly-pl
+
+## Search
+json-search: 'search-posts-metas-and-pages'
+
+## Social Sharing
+og_image                 : "/favocon.ico"
+footer:
+  links:
+    - label              : "Twitter"
+      icon               : "fab fa-fw fa-twitter"
+      url                : "https://twitter.com/TheKamilAdam"
+    - label              : "Linkedin"
+      icon               : "fab fa-fw fa-linkedin-in"
+      url                : "https://www.linkedin.com/company/writeonly-pl/"
+    - label              : "Facebook"
+      icon               : "fab fa-fw fa-facebook"
+      url                : "https://www.facebook.com/WriteOnlyPL"
+    - label              : "GitHub"
+      icon               : "fab fa-fw fa-github"
+      url                : "https://github.com/writeonly"
+    - label              : "Instagram"
+      icon               : "fab fa-fw fa-instagram"
+      url                : "https://instagram.com/degustujacaistota"
+
+# Theme settings
+
+locale                   : "pl-PL"
+
+version                  : 2.0.1
 
 github:
-  repo:             https://github.com/karloespiritu/blackdoc
+  repo                   : https://github.com/twocolumn/master-rust
+
+# SOCIAL LINKS
+social_links:
+  github                 :  writeonly
+  linkedin               : writeonly-pl
+  facebook               : WriteOnlyPL
+  instagram              : degustujacaistota
+  twitter                : TheKamilAdam
+  rss                    : rss
+  # microdotblog          : TheKamilAdam
+  # dribbble              : jekyll
+  # flickr                : jekyll
+  # pinterest             : jekyll
+  # youtube               : jekyll
+  # youtube_channel       : UC8CXR0-3I70i1tfPg1PAE1g
+  # youtube_channel_name  : CloudCannon
+  # telegram              : jekyll
+  # googleplus            : +jekyll
+  # keybase               : jekyll
