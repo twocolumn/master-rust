@@ -1,0 +1,33 @@
+<article class="post">
+  {{ post.content }}
+
+  <footer>
+    {% if post.author %}
+    <nav class="tags">
+      Author: @{{post.author}}
+    </nav>
+    {% endif %}
+
+    {% assign tags = post.tags | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Tags:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/posts-by-tags/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+
+    {% assign tags = post.langs | split: ' ' | sort %}
+    {% assign tags_size = tags | size %}
+    {% if 0 < tags_size %}
+    <nav class="tags">
+      Labels:
+      {% for tag in tags %}
+      <a href="{{ site.baseurl }}/posts-by-labels/{{ tag }}">{{ tag }}</a>
+      {% endfor %}
+    </nav>
+    {% endif %}
+  </footer>
+</article>
