@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Theme Styles
+permalink: style/
 ---
 
 ## Full Style Test
