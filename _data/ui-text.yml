@@ -31,8 +31,8 @@ pl: &DEFAULT_PL
   home             : Strona główna
   older            : Starsze artykuły
   newer            : Nowsze artykuły
-  go-to-post       : Przejdz do artykułu
-  go-to-comments   : Przej do komantarzy
+  go-to-post       : Przejdź do artykułu
+  go-to-comments   : Przejdź do komantarzy
   share-on         : Udostępnij
   related-posts    : Powiązane artykuły
   category         : Kategoria
