@@ -19,6 +19,18 @@ compress_html:
   profile: false
   startings: [head, body]
 
+collections:
+  labels:
+    output: true
+  langs:
+    output: true
+  tools:
+    output: true
+  libs:
+    output: true
+  books:
+    output: true
+
 # PLUGINS
 plugins:
   - jekyll-avatar
