@@ -77,50 +77,6 @@ defaults:
       sidebar:
         main             : true
         nav              : sidebar-main
-  # _langs
-  - scope:
-      path               : ""
-      type               : langs
-    values               :
-      layout             : page-lang
-      share              : true
-      classes            : wide
-      sidebar:
-        main             : true
-        nav              : sidebar-main
-  # _tools
-  - scope:
-      path               : ""
-      type               : tools
-    values:
-      layout             : page-tool
-      share              : true
-      classes            : wide
-      sidebar:
-        main             : true
-        nav              : sidebar-main
-  # _libs
-  - scope:
-      path               : ""
-      type               :  libs
-    values:
-      layout             : page-lib
-      share              : true
-      classes            : wide
-      sidebar:
-        main             : true
-        nav              : sidebar-main
-  # _books
-  - scope:
-      path               : ""
-      type               : books
-    values:
-      layout             : page-book
-      share              : true
-      classes            : wide
-      sidebar:
-        main             : true
-        nav              : sidebar-main
 
 # Plugins
 plugins:
