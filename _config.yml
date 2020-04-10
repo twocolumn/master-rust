@@ -27,28 +27,6 @@ sass:
   #  sass_dir: ui/_scss
   style                  : compressed
 
-## Collections: https://jekyllrb.com/docs/collections/
-collections_dir          : docs
-collections:
-  categories:
-    output               : true
-    permalink            : /:collection/:path/
-  tags:
-    output               : true
-    permalink            : /:collection/:path/
-  langs:
-    output               : true
-    permalink            : /:collection/:path/
-  tools:
-    output               : true
-    permalink            : /:collection/:path/
-  libs:
-    output               : true
-    permalink            : /:collection/:path/
-  books:
-    output               : true
-    permalink            : /:collection/:path/
-
 ## Front Matter Defaults: https://jekyllrb.com/docs/configuration/front-matter-defaults/
 
 defaults:
